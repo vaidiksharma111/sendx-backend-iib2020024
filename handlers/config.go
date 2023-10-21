@@ -9,15 +9,19 @@ import (
 	"strconv"
 )
 
-func SetNumWorkers(w http.ResponseWriter, r *http.Request) {
+func UpdateNumWorkers(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
 		return
 	}
 
-	body, _ := ioutil.ReadAll(r.Body)
+	body, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, "Failed to read the request body", http.StatusBadRequest)
+		return
+	}
+
 	newNumWorkers, err := strconv.Atoi(string(body))
-	// fmt.Println("number of workers assigned = ", newNumWorkers)
 	if err != nil {
 		http.Error(w, "Invalid number provided", http.StatusBadRequest)
 		return
@@ -30,15 +34,19 @@ func SetNumWorkers(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Number of workers updated successfully"))
 }
 
-func SetMaxCrawlsPerHour(w http.ResponseWriter, r *http.Request) {
+func UpdateMaxCrawlsPerHour(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
 		return
 	}
 
-	body, _ := ioutil.ReadAll(r.Body)
+	body, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, "Failed to read the request body", http.StatusBadRequest)
+		return
+	}
+
 	newMaxCrawls, err := strconv.Atoi(string(body))
-	// fmt.Println("new max crawls assigned = ", newMaxCrawls)
 	if err != nil {
 		http.Error(w, "Invalid number provided", http.StatusBadRequest)
 		return
@@ -49,7 +57,6 @@ func SetMaxCrawlsPerHour(w http.ResponseWriter, r *http.Request) {
 	models.State.Mu.Unlock()
 
 	w.Write([]byte("Max crawls per hour updated successfully"))
-	// fmt.Println("Max crawls per hour updated successfully")
 }
 
 func GetConfig(w http.ResponseWriter, r *http.Request) {

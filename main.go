@@ -17,8 +17,8 @@ func main() {
 	http.HandleFunc("/admin-login-form", handlers.AdminLoginForm)
 	http.HandleFunc("/admin-login", handlers.AdminLoginHandler)
 	http.HandleFunc("/crawl", handlers.CrawlHandler)
-	http.HandleFunc("/config/numWorkers", handlers.SetNumWorkers)
-	http.HandleFunc("/config/maxCrawlsPerHour", handlers.SetMaxCrawlsPerHour)
+	http.HandleFunc("/config/numWorkers", handlers.UpdateNumWorkers)
+	http.HandleFunc("/config/maxCrawlsPerHour", handlers.UpdateMaxCrawlsPerHour)
 	http.HandleFunc("/config", handlers.GetConfig)
 	http.HandleFunc("/get-config", handlers.GetConfigJSON)
 

@@ -10,9 +10,9 @@ body {
 }
 
 h3 {
-    border-bottom: 2px solid #007BFF;
+    border-bottom: 2px solid #3a4653;
     padding-bottom: 10px;
-    color: #007BFF;
+    color: #3a4653;
     text-align: center;
     width: 100%;
     font-weight: 500;
@@ -39,7 +39,7 @@ input[type="number"] {
 
 input[type="text"]:focus,
 input[type="number"]:focus {
-    border-color: #007BFF;
+    border-color: #3a4653;
 }
 
 label {
@@ -52,25 +52,43 @@ label {
 .btn-container {
     text-align: center;
     margin-top: 20px;
+    display: flex; /* Add this to make the buttons appear in one line */
+    justify-content: space-between; /* Spread the buttons evenly */
 }
 
 button {
+    display: block;
     padding: 12px 20px;
     background-color: #3a4653;
     color: #ffffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin: 0 10px; /* Adjust the margin as needed */
+    margin: 10px; /* Adjust margin here */
     transition: background-color .2s;
     font-weight: 500;
-    font-family: 'Poppins', sans-serif;
+}
+
+.back-btn {
+    display: block;
+    padding: 12px 20px;
+    background-color: #3a4653;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 20px auto;
+    transition: background-color .2s;
+    font-weight: 500;
+}
+
+submit-button {
+    display: flex;
 }
 
 button:hover {
     background-color: #516174;
 }
-
 
 pre {
     margin-top: 20px;

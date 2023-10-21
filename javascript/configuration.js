@@ -1,9 +1,9 @@
 async function updateConfig() {
-    const numWorkers = document.getElementById('numWorkers').value;
     const maxCrawls = document.getElementById('maxCrawls').value;
+    const numWorkers = document.getElementById('numWorkers').value;
 
     // Check if the input fields are not empty and are valid numbers
-    if (!numWorkers && !maxCrawls && isNaN(numWorkers) && isNaN(maxCrawls)) {
+    if (!numWorkers && !maxCrawls) {
         alert("Please enter valid numbers in both fields.");
         return;
     }
@@ -24,8 +24,8 @@ async function updateConfig() {
     alert(`Configuration updated successfully!\n\nNumber of Workers: ${numWorkers}\nMax Crawls per Hour: ${maxCrawls}`);
 
     // Clear the input fields
-    document.getElementById('numWorkers').value = '';
     document.getElementById('maxCrawls').value = '';
+    document.getElementById('numWorkers').value = '';
 }
 
 async function getConfig() {
@@ -35,8 +35,8 @@ async function getConfig() {
 }
 
 function clearConfig() {
-    document.getElementById('numWorkers').value = '';
     document.getElementById('maxCrawls').value = '';
+    document.getElementById('numWorkers').value = '';
 }
 
 async function getCurrentConfig() {

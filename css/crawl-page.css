@@ -59,7 +59,7 @@ button {
     cursor: pointer;
     margin: 20px auto;
     transition: background-color .2s;
-    font-weight: 500; /* medium weight */
+    font-weight: 500; 
 }
 
 button:hover {
