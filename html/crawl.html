@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crawler App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="/javascript/crawl.js" defer></script>
+    <link rel="stylesheet" href="/css/crawl-page.css">
+</head>
+
+<body>
+    <div class="container">
+        <button class="back-btn" onclick="Back()">Back</button>
+        <h3>Crawler App</h3>
+        <label for="url">Enter URL to crawl</label>
+        <input type="text" id="url" placeholder="http://example.com">
+        <label>
+            <input type="checkbox" id="isPaying"> Paying Customer
+        </label>
+        <button onclick="crawlURL()">Crawl</button>
+        <pre id="output"></pre>
+    </div>
+
+</body>
+
+</html>

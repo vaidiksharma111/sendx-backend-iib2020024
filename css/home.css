@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+body {  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #4d2c50, #5f99d3);
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Header styles */
+header {
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Section styles */
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+.login-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3a4653;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.login-btn:hover {
+    background-color: #516174;
+}
+
+/* Button styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3a4653;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+.btn:hover {
+    background-color: #516174;
+}
+
+.btn.top-right {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Feature styles */
+.features-table {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    text-align: left;
+    list-style: none;
+}
+
+.features-item {
+    display: flex;
+}
+
+.features-item::before {
+    content: '•';
+    margin-right: 15px;
+}

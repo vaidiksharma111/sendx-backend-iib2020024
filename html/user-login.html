@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <script src="/javascript/login.js" defer></script>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <h2>User Login</h2>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <div class="form-group1">
+                <label for="showPassword">Show Password</label>
+                <input type="checkbox" id="showPassword">
+            </div>
+            
+            <button class="login-btn" onclick="userLogin()">Login</button>
+            <button class="login-btn" onclick="Back()" style="margin-right: 0px;">Back</button>
+        </div>
+    </div>
+
+    <script>
+        const showPasswordCheckbox = document.getElementById("showPassword");
+        const passwordField = document.getElementById("password");
+
+        showPasswordCheckbox.addEventListener("change", function() {
+            passwordField.type = this.checked ? "text" : "password";
+        });
+    </script>
+</body>
+</html>
