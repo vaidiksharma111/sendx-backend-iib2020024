@@ -5,7 +5,9 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"project-sendx/models"
+
+	// "project-sendx/models"
+	"project-sendx/state"
 	"strconv"
 )
 
@@ -27,9 +29,9 @@ func UpdateNumWorkers(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	models.State.Mu.Lock()
-	models.State.NumWorkers = newNumWorkers
-	models.State.Mu.Unlock()
+	state.State.Mu.Lock()
+	state.State.NumWorkers = newNumWorkers
+	state.State.Mu.Unlock()
 
 	w.Write([]byte("Number of workers updated successfully"))
 }
@@ -52,29 +54,29 @@ func UpdateMaxCrawlsPerHour(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	models.State.Mu.Lock()
-	models.State.MaxCrawlsPerHour = newMaxCrawls
-	models.State.Mu.Unlock()
+	state.State.Mu.Lock()
+	state.State.MaxCrawlsPerHour = newMaxCrawls
+	state.State.Mu.Unlock()
 
 	w.Write([]byte("Max crawls per hour updated successfully"))
 }
 
 func GetConfig(w http.ResponseWriter, r *http.Request) {
-	models.State.Mu.Lock()
-	defer models.State.Mu.Unlock()
+	state.State.Mu.Lock()
+	defer state.State.Mu.Unlock()
 
-	config := fmt.Sprintf("Number of Workers: %d, Max Crawls per Hour: %d", models.State.NumWorkers, models.State.MaxCrawlsPerHour)
+	config := fmt.Sprintf("Number of Workers: %d, Max Crawls per Hour: %d", state.State.NumWorkers, state.State.MaxCrawlsPerHour)
 	w.Write([]byte(config))
 }
 
 func GetConfigJSON(w http.ResponseWriter, r *http.Request) {
-	models.State.Mu.Lock()
-	defer models.State.Mu.Unlock()
+	state.State.Mu.Lock()
+	defer state.State.Mu.Unlock()
 
 	// Create a map to hold the configuration
 	configData := map[string]int{
-		"numWorkers":       models.State.NumWorkers,
-		"maxCrawlsPerHour": models.State.MaxCrawlsPerHour,
+		"numWorkers":       state.State.NumWorkers,
+		"maxCrawlsPerHour": state.State.MaxCrawlsPerHour,
 	}
 
 	// Convert the map to JSON

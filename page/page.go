@@ -1,4 +1,4 @@
-package models
+package page
 
 type PageData struct {
 	Timestamp int64

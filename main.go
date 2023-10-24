@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"project-sendx/handlers"
+	handlers "project-sendx/crawl-handlers"
 )
 
 const (

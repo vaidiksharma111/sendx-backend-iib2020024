@@ -1,6 +1,7 @@
-package models
+package state
 
 import (
+	"project-sendx/page"
 	"sync"
 	"time"
 )
@@ -25,4 +26,4 @@ var State = ServerState{
 	LastCrawlReset:   time.Now(),
 }
 
-var CrawledPages = make(map[string]PageData)
+var CrawledPages = make(map[string]page.PageData)

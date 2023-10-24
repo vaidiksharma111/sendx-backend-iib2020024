@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"project-sendx/models"
+	"project-sendx/page"
+	"project-sendx/state"
 	"time"
 )
 
@@ -15,28 +16,28 @@ type cachedPage struct {
 	ExpiryTime time.Time
 }
 
-func worker(jobs <-chan models.CrawlJob) {
+func worker(jobs <-chan page.CrawlJob) {
 	for job := range jobs {
 		if !job.IsPaying {
-			time.Sleep(models.NON_PAYING_DELAY)
+			time.Sleep(state.NON_PAYING_DELAY)
 		}
 		job.Result <- crawlPage(job.Url)
 	}
 }
 
 func CrawlHandler(w http.ResponseWriter, r *http.Request) {
-	models.State.Mu.Lock()
-	if time.Since(models.State.LastCrawlReset) > time.Hour {
-		models.State.PagesCrawledThisHour = 0
-		models.State.LastCrawlReset = time.Now()
+	state.State.Mu.Lock()
+	if time.Since(state.State.LastCrawlReset) > time.Hour {
+		state.State.PagesCrawledThisHour = 0
+		state.State.LastCrawlReset = time.Now()
 	}
-	if models.State.PagesCrawledThisHour >= models.State.MaxCrawlsPerHour {
-		models.State.Mu.Unlock()
+	if state.State.PagesCrawledThisHour >= state.State.MaxCrawlsPerHour {
+		state.State.Mu.Unlock()
 		http.Error(w, "Hourly crawl limit exceeded", http.StatusTooManyRequests)
 		return
 	}
-	models.State.PagesCrawledThisHour++
-	models.State.Mu.Unlock()
+	state.State.PagesCrawledThisHour++
+	state.State.Mu.Unlock()
 
 	urls, ok := r.URL.Query()["url"]
 	if !ok || len(urls[0]) < 1 {
@@ -46,18 +47,18 @@ func CrawlHandler(w http.ResponseWriter, r *http.Request) {
 	url := urls[0]
 	isPaying := r.URL.Query().Get("isPaying") == "true"
 
-	workersCount := models.State.NumWorkers
+	workersCount := state.State.NumWorkers
 	if isPaying {
-		workersCount = models.DEFAULT_WORKERS
+		workersCount = state.DEFAULT_WORKERS
 	}
 
-	jobs := make(chan models.CrawlJob, workersCount)
+	jobs := make(chan page.CrawlJob, workersCount)
 	for i := 0; i < workersCount; i++ {
 		go worker(jobs)
 	}
 
 	result := make(chan string)
-	jobs <- models.CrawlJob{Url: url, IsPaying: isPaying, Result: result}
+	jobs <- page.CrawlJob{Url: url, IsPaying: isPaying, Result: result}
 	pageData := <-result
 
 	// Check if the URL has been crawled recently and exists in the cache
@@ -73,7 +74,7 @@ func CrawlHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	currentTime := time.Now().Unix()
-	models.CrawledPages[url] = models.PageData{
+	state.CrawledPages[url] = page.PageData{
 		Timestamp: currentTime,
 		Data:      pageData,
 	}
