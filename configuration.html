@@ -11,16 +11,16 @@
 
 <body>
     <div class="container">
-        <button class="back-btn" onclick="Back()" style="margin-right: 0px;">Back</button>
+        <button class="back-btn" onclick="navigateBack()" style="margin-right: 0px;">Back</button>
         <h3>Server Configuration</h3>
-        <button class="submit-button" onclick="getCurrentConfig()">Configuration</button>
+        <button class="submit-button" onclick="fetchCurrentConfiguration()">Configuration</button>
         <label for="maxCrawls">Crawl Limit (/hr):</label>
         <input type="number" id="maxCrawls"><br>
         <label for="numWorkers">Workers:</label>
         <input type="number" id="numWorkers"><br>
         <div class="btn-container">
-            <button class="submit-button" onclick="updateConfig()">Submit</button>
-            <button class="submit-button" onclick="clearConfig()">Clear</button>
+            <button class="submit-button" onclick="updateConfiguration()">Submit</button>
+            <button class="submit-button" onclick="clearInputFields()">Clear</button>
         </div>
     </div>
 
