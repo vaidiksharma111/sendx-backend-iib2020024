@@ -7,23 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crawler App</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <script src="/javascript/crawl.js" defer></script>
     <link rel="stylesheet" href="/css/crawl-page.css">
+    <script src="/javascript/crawl.js" defer></script>
 </head>
 
 <body>
     <div class="container">
+        <h2>Crawl Website</h2>
         <button class="back-btn" onclick="Back()">Back</button>
-        <h3>Crawler App</h3>
-        <label for="url">Enter URL to crawl</label>
+        <label for="url">Enter the URL to crawl:</label>
         <input type="text" id="url" placeholder="http://example.com">
-        <label>
-            <input type="checkbox" id="isPaying"> Paying Customer
+        <label class="paying-label">
+            <input type="checkbox" id="isPaying"> Are you a paying customer?
         </label>
-        <button onclick="crawlURL()">Crawl</button>
-        <pre id="output"></pre>
+        <button onclick="crawlURL()">Start Crawling</button>
+        <div class="output-box">
+            <h3>Output:</h3>
+            <pre id="output"></pre>
+        </div>
     </div>
-
 </body>
 
 </html>

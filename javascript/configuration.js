@@ -19,10 +19,7 @@ async function updateConfig() {
         body: maxCrawls,
         headers: { 'Content-Type': 'application/json' }
     });
-
-    // Show alert with configuration values
-    alert(`Configuration updated successfully!\n\nNumber of Workers: ${numWorkers}\nMax Crawls per Hour: ${maxCrawls}`);
-
+    
     // Clear the input fields
     document.getElementById('maxCrawls').value = '';
     document.getElementById('numWorkers').value = '';

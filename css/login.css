@@ -4,9 +4,10 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(135deg, #4d2c50, #5f99d3);
-    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #253d24, #52bff2);
+    /* font-family: 'Georgia', serif; */
 }
+
 
 .container {
     display: flex;

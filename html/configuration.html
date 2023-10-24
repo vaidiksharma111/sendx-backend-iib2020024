@@ -14,13 +14,14 @@
     <div class="container">
         <button class="back-btn" onclick="Back()" style="margin-right: 0px;">Back</button>
         <h3>Server Configuration</h3>
-        <label for="numWorkers">Number of Workers:</label>
-        <input type="number" id="numWorkers"><br>
-        <label for="maxCrawls">Max Crawls per Hour:</label>
+        <button class="submit-button" onclick="getCurrentConfig()">Configuration</button>
+        <label for="maxCrawls">Crawl Limit (/hr):</label>
         <input type="number" id="maxCrawls"><br>
+        <label for="numWorkers">Workers:</label>
+        <input type="number" id="numWorkers"><br>
         <div class="btn-container">
-            <button class="submit-button" onclick="getCurrentConfig()">Get Current Configuration</button>
-            <button class="submit-button" onclick="updateConfig()">Update Configuration</button>
+            
+            <button class="submit-button" onclick="updateConfig()">Submit</button>
             <button class="submit-button" onclick="clearConfig()">Clear</button>
         </div>
     </div>

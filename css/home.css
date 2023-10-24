@@ -12,8 +12,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(135deg, #4d2c50, #5f99d3);
-    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #253d24, #52bff2);
+    /* font-family: 'Poppins', sans-serif; */
 }
 
 
@@ -58,7 +58,7 @@ section {
     cursor: pointer;
     transition: background-color 0.2s;
     font-weight: 500;
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
 }
 .btn:hover {
     background-color: #516174;
