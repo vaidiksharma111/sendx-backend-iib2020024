@@ -50,7 +50,7 @@ Before you begin, ensure you have met the following requirements:
    git clone https://github.com/vaidiksharma111/sendx-backend-iib2020024/
 2. Navigate to the project directory:
     ```bash
-   cd web-page-crawler
+   cd sendx-backend-iib2020024
 3. Configure the application. You may need to set environment variables or update a configuration file.
 4. Run the application:
    ```bash
