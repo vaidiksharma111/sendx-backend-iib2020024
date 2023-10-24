@@ -2,6 +2,8 @@
 
 Web Page Crawler is a tool that allows users to crawl web pages on demand and retrieve their content. This README provides an overview of the project, how to set it up, and how to use it.
 
+For video demonstration, please refer: https://drive.google.com/file/d/1TXkDfhDR5eDjGxtM2I1wuZSflw_HaQbf/view?usp=sharing
+
 ## Table of Contents
 
 - [Description](#description)
@@ -48,7 +50,7 @@ Before you begin, ensure you have met the following requirements:
    git clone https://github.com/vaidiksharma111/sendx-backend-iib2020024/
 2. Navigate to the project directory:
     ```bash
-   cd web-page-crawler
+   cd sendx-backend-iib2020024
 3. Configure the application. You may need to set environment variables or update a configuration file.
 4. Run the application:
    ```bash
