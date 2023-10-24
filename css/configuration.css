@@ -1,5 +1,4 @@
 body {
-    /* font-family: 'Poppins', sans-serif; */
     margin: 0;
     background: linear-gradient(135deg, #253d24, #52bff2);
     color: #333;
@@ -51,8 +50,8 @@ label {
 .btn-container {
     text-align: center;
     margin-top: 20px;
-    display: flex; /* Add this to make the buttons appear in one line */
-    justify-content: space-between; /* Spread the buttons evenly */
+    display: flex; 
+    justify-content: space-between; 
 }
 
 button {
@@ -63,7 +62,7 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin: 10px; /* Adjust margin here */
+    margin: 10px; 
     transition: background-color .2s;
     font-weight: 500;
 }

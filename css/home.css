@@ -13,18 +13,14 @@ body {
     height: 100vh;
     margin: 0;
     background: linear-gradient(135deg, #253d24, #52bff2);
-    /* font-family: 'Poppins', sans-serif; */
 }
 
-
-/* Header styles */
 header {
     color: white;
     text-align: center;
     padding: 20px;
 }
 
-/* Section styles */
 section {
     padding: 20px;
     text-align: center;
@@ -47,7 +43,6 @@ section {
     background-color: #516174;
 }
 
-/* Button styles */
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -58,7 +53,6 @@ section {
     cursor: pointer;
     transition: background-color 0.2s;
     font-weight: 500;
-    /* font-family: 'Poppins', sans-serif; */
 }
 .btn:hover {
     background-color: #516174;
@@ -70,7 +64,6 @@ section {
     right: 10px;
 }
 
-/* Feature styles */
 .features-table {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

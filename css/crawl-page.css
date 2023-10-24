@@ -15,7 +15,7 @@ body {
     margin: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Fill the width of the page */
+    width: 100%; 
     text-align: center;
 }
 

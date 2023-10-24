@@ -1,29 +1,39 @@
 package state
 
 import (
-	"project-sendx/page"
 	"sync"
 	"time"
 )
 
+type PageData struct {
+	Timestamp int64
+	Content   string
+}
+
+type CrawlJob struct {
+	Url    string
+	Paying bool
+	Result chan string
+}
+
 const (
-	NON_PAYING_DELAY   = 2 * time.Second
-	DEFAULT_WORKERS    = 5
-	DEFAULT_MAX_CRAWLS = 100
+	NonPayingDelay   = 2 * time.Second
+	DefaultWorkers   = 5
+	DefaultMaxCrawls = 100
 )
 
-type ServerState struct {
+type MyServerState struct {
 	NumWorkers           int
 	MaxCrawlsPerHour     int
 	PagesCrawledThisHour int
 	LastCrawlReset       time.Time
-	Mu                   sync.Mutex
+	StateMutex           sync.Mutex // Define the mutex here
 }
 
-var State = ServerState{
-	NumWorkers:       DEFAULT_WORKERS,
-	MaxCrawlsPerHour: DEFAULT_MAX_CRAWLS,
+var MyState = MyServerState{
+	NumWorkers:       DefaultWorkers,
+	MaxCrawlsPerHour: DefaultMaxCrawls,
 	LastCrawlReset:   time.Now(),
 }
 
-var CrawledPages = make(map[string]page.PageData)
+var MyCrawledPages = make(map[string]PageData)

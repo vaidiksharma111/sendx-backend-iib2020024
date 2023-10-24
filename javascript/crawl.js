@@ -7,15 +7,15 @@ async function crawlURL() {
         headers: { 'Content-Type': 'application/json' }
     });
     const data = await response.text();
-    document.getElementById('output').innerHTML = escapeHtml(data).replace(/\n/g, '<br>');
+    document.getElementById('output').innerHTML = cleanHtml(data).replace(/\n/g, '<br>');
 }
 
-function escapeHtml(unsafe) {
+function cleanHtml(unsafe) {
     return unsafe
-        .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
+        .replace(/&/g, "&amp;")
         .replace(/"/g, "&quot;")
+        .replace(/>/g, "&gt;")
         .replace(/'/g, "&#039;");
 }
 
